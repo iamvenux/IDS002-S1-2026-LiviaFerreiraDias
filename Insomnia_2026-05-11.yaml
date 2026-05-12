@@ -1,0 +1,901 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: My first collection
+meta:
+  id: wrk_70b512ed99ba402cac05b75b5edb9036
+  created: 1778534248733
+  modified: 1778534248733
+  description: ""
+collection:
+  - name: Sala
+    meta:
+      id: fld_48ca166948d7427fbcdb54da53e9bded
+      created: 1778534261583
+      modified: 1778534261583
+      sortKey: -1778534261583
+      description: ""
+    children:
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Sala/inserir
+        name: Inserir
+        meta:
+          id: req_267268677cb840d8bcd38accf8f708d2
+          created: 1778534277774
+          modified: 1778535149765
+          isPrivate: false
+          description: ""
+          sortKey: -1778534277774
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "",
+            	"descricao" : "",
+            	"andar" : "",
+            	"capacidade" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Sala/consultar
+        name: Consulta
+        meta:
+          id: req_59f77931a0854ffb9eda63444546f8e3
+          created: 1778535121279
+          modified: 1778535387044
+          isPrivate: false
+          description: ""
+          sortKey: -1778534277874
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "",
+            	"descricao" : "",
+            	"andar" : "",
+            	"capacidade" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Sala/alterar
+        name: Alterar
+        meta:
+          id: req_7a773675f9dd4c62aaf17cdba88f081d
+          created: 1778535351342
+          modified: 1778536570314
+          isPrivate: false
+          description: ""
+          sortKey: -1778534277974
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "",
+            	"descricao" : "",
+            	"andar" : "",
+            	"capacidade" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Sala/desativar
+        name: Desativar
+        meta:
+          id: req_bfb3c427412a4f62a3e3acbcc9aa5ded
+          created: 1778536547966
+          modified: 1778538207451
+          isPrivate: false
+          description: ""
+          sortKey: -1778534278074
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Horario
+    meta:
+      id: fld_e7d5d80d9dda404389dbf759cf8899c1
+      created: 1778536625957
+      modified: 1778536625957
+      sortKey: -1778536625957
+      description: ""
+    children:
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Horario/inserir
+        name: Inserir
+        meta:
+          id: req_45e6f566ce634b20b2e230b42dc18e28
+          created: 1778536652531
+          modified: 1778553328338
+          isPrivate: false
+          description: ""
+          sortKey: -1778536652531
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao" : "oi",
+            	"horaInicial" : "12:00",
+            	"horaFinal" : "13:00"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Horario/consultar
+        name: Consulta
+        meta:
+          id: req_cff8d0bd36494855bdf9637dbfbb300f
+          created: 1778537804362
+          modified: 1778537949087
+          isPrivate: false
+          description: ""
+          sortKey: -1778537804362
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "",
+            	"descricao" : "",
+            	"horaInicial" : "",
+            	"horaFinal" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Horario/alterar
+        name: Alterar
+        meta:
+          id: req_c5e5709f157747ea80d9903d700c2caf
+          created: 1778537954426
+          modified: 1778551360204
+          isPrivate: false
+          description: ""
+          sortKey: -1778537804462
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "",
+            	"descricao" : "",
+            	"horaInicial" : "",
+            	"horaFinal" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Horario/desativar
+        name: Desativar
+        meta:
+          id: req_9d77505a87404399baf67db9bdc088a6
+          created: 1778538169389
+          modified: 1778551354582
+          isPrivate: false
+          description: ""
+          sortKey: -1778538169389
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Turma
+    meta:
+      id: fld_be83fd68ab5f4b2683c4e6664a210c72
+      created: 1778539892889
+      modified: 1778539892889
+      sortKey: -1778539892889
+      description: ""
+    children:
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Turma/inserir
+        name: Inserir
+        meta:
+          id: req_1a7d9ca084474b3ca60ccd04a002e7f7
+          created: 1778539894970
+          modified: 1778554017077
+          isPrivate: false
+          description: ""
+          sortKey: -1778539894970
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao" : "opa",
+            	"capacidade" : "12",
+            	"dataInicio" : "2026-05-12"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Turma/consultar
+        name: Consulta
+        meta:
+          id: req_e3cb2f20e1e04e41a3df7b8aa804a106
+          created: 1778540047371
+          modified: 1778542809793
+          isPrivate: false
+          description: ""
+          sortKey: -1778540047371
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "",
+            	"descricao" : "",
+            	"capacidade" : "",
+            	"dataInicio" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Turma/alterar
+        name: Alterar
+        meta:
+          id: req_747c79ecfb69431887f3ee1e562a1695
+          created: 1778541097176
+          modified: 1778541201335
+          isPrivate: false
+          description: ""
+          sortKey: -1778541097176
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "",
+            	"descricao" : "",
+            	"capacidade" : "",
+            	"dataInicio" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Turma/desativar
+        name: Desativar
+        meta:
+          id: req_9fc91d11ce244449a1409e0bb3c89961
+          created: 1778541204764
+          modified: 1778551341691
+          isPrivate: false
+          description: ""
+          sortKey: -1778541204764
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Professor
+    meta:
+      id: fld_167e19e990894f3a91f4ed920c76bf16
+      created: 1778542453090
+      modified: 1778543988094
+      sortKey: -1778542453090
+      description: ""
+    children:
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Professor/inserir
+        name: Inserir
+        meta:
+          id: req_329ef53e87ff49638a157e11345fea8f
+          created: 1778542455602
+          modified: 1778553402343
+          isPrivate: false
+          description: ""
+          sortKey: -1778542455602
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome" : "oi",
+              "cpf" : "03585649645",
+              "tipo" : "opa"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Professor/consultar
+        name: Consulta
+        meta:
+          id: req_cb1cba8b8e664ad7b1f5d518b118ff45
+          created: 1778542718951
+          modified: 1778542817936
+          isPrivate: false
+          description: ""
+          sortKey: -1778542718951
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "",
+            	"nome" : "",
+              "cpf" : "",
+              "tipo" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Professor/alterar
+        name: Alterar
+        meta:
+          id: req_428db30d5f4649ce80b1fa2c7321e51e
+          created: 1778542826558
+          modified: 1778553422298
+          isPrivate: false
+          description: ""
+          sortKey: -1778542826558
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "7",
+            	"nome" : "Maria",
+              "cpf" : "",
+              "tipo" : ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Professor/desativar
+        name: Desativar
+        meta:
+          id: req_6c8b502b791b4112ab113839236dcb46
+          created: 1778544026551
+          modified: 1778553433350
+          isPrivate: false
+          description: ""
+          sortKey: -1778544026551
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "7"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Mapa
+    meta:
+      id: fld_6e148c7e363a4e58ba9db54c603cc050
+      created: 1778545066960
+      modified: 1778545066960
+      sortKey: -1778545066960
+      description: ""
+    children:
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Mapa/inserir
+        name: Inserir
+        meta:
+          id: req_097cf191f64445f98882395f33a5d9dd
+          created: 1778545069836
+          modified: 1778553512579
+          isPrivate: false
+          description: ""
+          sortKey: -1778545069836
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "dataReserva": "2026-04-24",
+                "codSala": 12,
+                "codHorario": 11,
+                "codTurma": 1,
+                "codProfessor": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Mapa/consultar
+        name: Consulta
+        meta:
+          id: req_c179fbd53be947628a97177671ecf75a
+          created: 1778548910162
+          modified: 1778549436505
+          isPrivate: false
+          description: ""
+          sortKey: -1778545069936
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "codigo": "",
+                "dataReserva": "",
+                "codSala": "",
+                "codHorario": "",
+                "codTurma": "",
+                "codProfessor": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Mapa/alterar
+        name: Alterar
+        meta:
+          id: req_ae2fec9a7d984f798a96fc3195d0afd3
+          created: 1778549439608
+          modified: 1778553704513
+          isPrivate: false
+          description: ""
+          sortKey: -1778549439608
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "codigo": "25",
+                "dataReserva": "2026-03-25",
+                "codSala": "",
+                "codHorario": "",
+                "codTurma": "",
+                "codProfessor": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Mapa/desativar
+        name: Desativar
+        meta:
+          id: req_5c83d811c1c245c9a281f7a4ada6a0ff
+          created: 1778549750102
+          modified: 1778553712841
+          isPrivate: false
+          description: ""
+          sortKey: -1778549750102
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"codigo" : "25"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Usuario
+    meta:
+      id: fld_d09a0c8a805f45008f0c2d36267a7cc0
+      created: 1778550143297
+      modified: 1778550341537
+      sortKey: -1778550143297
+      description: ""
+    children:
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Usuario/inserir
+        name: Inserir
+        meta:
+          id: req_f1a7dc287e834a43bcf79ea2558c582d
+          created: 1778550163316
+          modified: 1778553816103
+          isPrivate: false
+          description: ""
+          sortKey: -1778550163316
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "nome": "Maria",
+                "email": "maria@gmail.com",
+                "usuario": "oi",
+                "senha": "123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Usuario/consultar
+        name: Consulta
+        meta:
+          id: req_1b45e8b609f042fdae44e349ea623151
+          created: 1778550217717
+          modified: 1778550286158
+          isPrivate: false
+          description: ""
+          sortKey: -1778550217717
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "nome": "",
+                "email": "",
+                "usuario": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Usuario/alterar
+        name: Alterar
+        meta:
+          id: req_48669e3eb7a940a38fcaaf9829406d98
+          created: 1778550260383
+          modified: 1778553793608
+          isPrivate: false
+          description: ""
+          sortKey: -1778550260383
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "idUsuario": 4,
+                "nome": "opa",
+                "email": "",
+                "senha": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Usuario/desativar
+        name: Desativar
+        meta:
+          id: req_52e83393773f40a8aa1dfa562d81d434
+          created: 1778550372677
+          modified: 1778553805958
+          isPrivate: false
+          description: ""
+          sortKey: -1778550372677
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "idUsuario": 3
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost/IDS002-S1-2026-LiviaFerreiraDias/Usuario/logar
+        name: Login
+        meta:
+          id: req_431e290c89964f5992bf3253750e1017
+          created: 1778550474794
+          modified: 1778553823938
+          isPrivate: false
+          description: ""
+          sortKey: -1778550474794
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "usuario": "oi",
+                "senha": "123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_f8ff9d65f9c26ddc2b0738a7e2229bed87790506
+    created: 1778534248737
+    modified: 1778534248737
+environments:
+  name: Base Environment
+  meta:
+    id: env_f8ff9d65f9c26ddc2b0738a7e2229bed87790506
+    created: 1778534248736
+    modified: 1778534248736
+    isPrivate: false
