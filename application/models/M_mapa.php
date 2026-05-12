@@ -288,7 +288,7 @@ class M_mapa extends CI_Model {
                     $salaObj = new M_sala();
 
                     // Chamar o método de verificação
-                    $retornoConsultaHorario = $horarioObj->consultarHorario($codHorario, '', '');
+                    $retornoConsultaSala = $salaObj->consultaSala($codSala);
 
                     if ($retornoConsultaSala['codigo'] == 1) {
                         $query .= "sala = $codSala, ";
@@ -305,7 +305,7 @@ class M_mapa extends CI_Model {
                     $horarioObj = new M_horario();
 
                     // Chamar o método de verificação
-                    $retornoConsultaHorario = $horarioObj->consultarHorario($codHorario, '');
+                    $retornoConsultaHorario = $horarioObj->consultarHorario($codHorario, '', '');
 
                     if ($retornoConsultaHorario['codigo'] == 1) {
                         $query .= "codigo_horario = $codHorario, ";

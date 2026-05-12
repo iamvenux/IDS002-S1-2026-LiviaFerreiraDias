@@ -52,7 +52,7 @@ class M_sala extends CI_Model
     }
 
     //Método privado, pois será auxiliar nesta classe
-    private function consultaSala($codigo){
+    public function consultaSala($codigo){
         try{
             //Query para consultar dados de acordo com os parâmetros passados
             $sql = "select * from tbl_sala where codigo = $codigo ";

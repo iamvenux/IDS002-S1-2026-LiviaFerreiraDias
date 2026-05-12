@@ -125,7 +125,7 @@ class Usuario extends CI_Controller {
 
                 if ($retornoSenha['codigoHelper'] != 0) {
                     $erros[] = ['codigo' => $retornoSenha['codigoHelper'],
-                                'campo'  => 'Data Inicio',
+                                'campo'  => 'Senha',
                                 'msg'    => $retornoSenha['msg']];
                 }
 
