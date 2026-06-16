@@ -1,15 +1,17 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Sala extends CI_Controller{
-    // Validação dos tipos de retorno das valçidações ( Código de erro )
-    //1 Operação realizada no banco de dados com sucesso (Inserção, Alteração, Consulta ou Exclusão)
-    //2 Conteúdo passado nulo ou vazio
-    //3 Conteúdo zerado
-    //4 Conteúdo não inteiro
-    //5 Conteúdo não é um texto
-    //6 Data em formato inválido
-    //7 Hora em formato inválido
-    //99 Parâmetros passados em front não correspondem ao método
+class Sala extends CI_Controller
+{
+    // Validação dos tipos de retorno das valçidações ( Codihgo de erro )
+    //1 Operação realizada
+    //2 conteudo nulo/vazio
+    //3zerado
+    //4 n inteiro
+    //5 n é txt
+    //6 data formato errado
+    //7 hora formato errado
+    // 12 na atua lização, deve ter ao menos 1 atributo passado
+    //99 parametro erro com front
 
     //Atributos privados da classe
     private $codigo;
@@ -33,23 +35,23 @@ class Sala extends CI_Controller{
     {
         return $this->andar;
     }
-    
+
     public function getCapacidade()
     {
         return $this->capacidade;
     }
-    
+
     public function getEstatus()
     {
         return $this->estatus;
     }
 
-    //Setter dos atributos
+    //setter dos atrubutos
     public function setCodigo($codigoFront)
     {
         $this->codigo = $codigoFront;
     }
-    
+
     public function setDescricao($descricaoFront)
     {
         $this->descricao = $descricaoFront;
@@ -70,8 +72,9 @@ class Sala extends CI_Controller{
         $this->estatus = $estatusFront;
     }
 
-    public function inserir() {
-        //Atributos para controlar o status do nosso método
+    public function inserir()
+    {
+        //Atributos p/ controlar o status do nosso metodo
         $erros = [];
         $sucesso = false;
 
@@ -85,100 +88,110 @@ class Sala extends CI_Controller{
                 "capacidade" => '0'
             ];
 
-            if (verificarParam($resultado, $lista) != 1){
-                //Validar vindos de forma correta de frontend (Helper)
-                $erros[] = ['codigo' => 99, 'msg' => 'Campos inexistentes ou incorretos no FrontEnd'];                
-            }else{
-                //Validade campos quanto ao tipo de dados e tamanho (Helper)
+            if (verificarParam($resultado, $lista) != 1) {
+                $erros[] = ['codigo' => 99, 'msg' => 'Campos inexistentes ou incorretos no FrontEnd'];
+            } else {
+                //Validade campos qt ao tipo de dados e tamanho (helper)
                 $retornoCodigo = validarDados($resultado->codigo, 'int', true);
                 $retornoDescricao = validarDados($resultado->descricao, 'string', true);
                 $retornoAndar = validarDados($resultado->andar, 'int', true);
                 $retornoCapacidade = validarDados($resultado->capacidade, 'int', true);
 
-                if($retornoCodigo['codigoHelper'] !=0){
-                    $erros[] = ['codigo'=> $retornoCodigo['codigoHelper'],
-                                'campo' => 'Codigo',
-                                'msg' => $retornoCodigo['msg']];
+                if ($retornoCodigo['codigoHelper'] != 0) {
+                    $erros[] = [
+                        'codigo' => $retornoCodigo['codigoHelper'],
+                        'campo' => 'Codigo',
+                        'msg' => $retornoCodigo['msg']
+                    ];
                 }
 
-                if($retornoDescricao['codigoHelper'] !=0){
-                    $erros[] = ['codigo'=> $retornoDescricao['codigoHelper'],
-                                'campo' => 'Descricao',
-                                'msg' => $retornoDescricao['msg']];
+                if ($retornoDescricao['codigoHelper'] != 0) {
+                    $erros[] = [
+                        'codigo' => $retornoDescricao['codigoHelper'],
+                        'campo' => 'Descricao',
+                        'msg' => $retornoDescricao['msg']
+                    ];
                 }
 
-                if($retornoAndar['codigoHelper'] !=0){
-                    $erros[] = ['codigo'=> $retornoAndar['codigoHelper'],
-                                'campo' => 'Andar',
-                                'msg' => $retornoAndar['msg']];
+                if ($retornoAndar['codigoHelper'] != 0) {
+                    $erros[] = [
+                        'codigo' => $retornoAndar['codigoHelper'],
+                        'campo' => 'Andar',
+                        'msg' => $retornoAndar['msg']
+                    ];
                 }
 
-                if($retornoCapacidade['codigoHelper'] !=0){
-                    $erros[] = ['codigo'=> $retornoCapacidade['codigoHelper'],
-                                'campo' => 'Capacidade',
-                                'msg' => $retornoCapacidade['msg']];
+                if ($retornoCapacidade['codigoHelper'] != 0) {
+                    $erros[] = [
+                        'codigo' => $retornoCapacidade['codigoHelper'],
+                        'campo' => 'Capacidade',
+                        'msg' => $retornoCapacidade['msg']
+                    ];
                 }
-                // Se não encontrar erros
-                if (empty($erros)){
+                // se n encontrar erros
+                if (empty($erros)) {
                     $this->setCodigo($resultado->codigo);
                     $this->setDescricao($resultado->descricao);
                     $this->setAndar($resultado->andar);
                     $this->setCapacidade($resultado->capacidade);
 
                     $this->load->model('M_sala');
-                    $resBanco = $this->M_sala->inserir(   
+                    $resBanco = $this->M_sala->inserir(
                         $this->getCodigo(),
                         $this->getDescricao(),
                         $this->getAndar(),
                         $this->getCapacidade()
                     );
 
-                    if ($resBanco['codigo']== 1){
+                    if ($resBanco['codigo'] == 1) {
                         $sucesso = true;
-                    }else {
-                        // Captura erro do banco
+                    } else {
+                        // captura erro do banco
                         $erros[] = [
-                            'codigo'=> $resBanco['codigo'],
-                            'msg'=> $resBanco['msg'],
+                            'codigo' => $resBanco['codigo'],
+                            'msg' => $resBanco['msg'],
                         ];
-                    }                    
+                    }
                 }
-            }            
-        }catch(Exception $e){
-            $erros[] = ['codigo'=> 0, 'msg' => 'Erro inesperado: ' . $e->getMessage()];
-        }
-        
-        // Monta retorno unico
-        if ($sucesso == true){
-            $retorno = ['sucesso' => $sucesso, 'msg' => 'Sala cadastrada corretamente'];
-        }else{
-            $retorno = ['sucesso'=> $sucesso, 'erros' => $erros];
+            }
+        } catch (Exception $e) {
+            $erros[] = ['codigo' => 0, 'msg' => 'Erro inesperado: ' . $e->getMessage()];
         }
 
-        // Tranforma o array em JSON
+        //MOnta retorno unico
+        if ($sucesso == true) {
+            $retorno = ['codigo' => $sucesso, 'msg' => 'Sala cadastrada corretamente.'];
+        } else {
+            $retorno = ['sucesso' => $sucesso, 'erros' => $erros];
+        }
+
+        //tranforma o array em JSON
         echo json_encode($retorno);
     }
 
     public function consultar()
     {
+        //Atributos para controlar o status de nosso método
         $erros = [];
         $sucesso = false;
 
         try {
+
             $json = file_get_contents('php://input');
             $resultado = json_decode($json);
             $lista = [
                 "codigo" => '0',
-                'descricao' => '0',
-                'andar' => '0',
-                'capacidade' => '0',
+                "descricao" => '0',
+                "andar" => '0',
+                "capacidade" => '0'
             ];
 
             if (verificarParam($resultado, $lista) != 1) {
-                //Validar vindos de forma correta do frontend (Helper)
+                // Valida vindos de forma correta do frontend (Helper)
                 $erros[] = ['codigo' => 99, 'msg' => 'Campos inexistentes ou incorretos no FrontEnd.'];
             } else {
-                //Validar campos quanto ao tipo de dado e tamanho (Helper)
+
+                // Validar campos quanto ao tipo de dado e tamanho (Helper)
                 $retornoCodigo = validarDadosConsulta($resultado->codigo, 'int');
                 $retornoDescricao = validarDadosConsulta($resultado->descricao, 'string');
                 $retornoAndar = validarDadosConsulta($resultado->andar, 'int');
@@ -187,39 +200,44 @@ class Sala extends CI_Controller{
                 if ($retornoCodigo['codigoHelper'] != 0) {
                     $erros[] = [
                         'codigo' => $retornoCodigo['codigoHelper'],
-                        'campo' => 'codigo',
-                        'msg' => $retornoCodigo['msg']];
+                        'campo' => 'Codigo',
+                        'msg' => $retornoCodigo['msg']
+                    ];
                 }
 
                 if ($retornoDescricao['codigoHelper'] != 0) {
                     $erros[] = [
                         'codigo' => $retornoDescricao['codigoHelper'],
-                        'campo' => 'descricao',
-                        'msg' => $retornoDescricao['msg']];
+                        'campo' => 'Descricao',
+                        'msg' => $retornoDescricao['msg']
+                    ];
                 }
 
                 if ($retornoAndar['codigoHelper'] != 0) {
                     $erros[] = [
                         'codigo' => $retornoAndar['codigoHelper'],
-                        'campo' => 'andar',
-                        'msg' => $retornoAndar['msg']];
+                        'campo' => 'Andar',
+                        'msg' => $retornoAndar['msg']
+                    ];
                 }
 
                 if ($retornoCapacidade['codigoHelper'] != 0) {
                     $erros[] = [
                         'codigo' => $retornoCapacidade['codigoHelper'],
-                        'campo' => 'capacidade',
-                        'msg' => $retornoCapacidade['msg']];
+                        'campo' => 'Capacidade',
+                        'msg' => $retornoCapacidade['msg']
+                    ];
                 }
 
                 //Se não encontrar erros
-                if (empty($erros)){
-                   $this->setCodigo($resultado->codigo);
+                if (empty($erros)) {
+                    $this->setCodigo($resultado->codigo);
                     $this->setDescricao($resultado->descricao);
                     $this->setAndar($resultado->andar);
                     $this->setCapacidade($resultado->capacidade);
 
                     $this->load->model('M_sala');
+
                     $resBanco = $this->M_sala->consultar(
                         $this->getCodigo(),
                         $this->getDescricao(),
@@ -227,35 +245,37 @@ class Sala extends CI_Controller{
                         $this->getCapacidade()
                     );
 
-                    if($resBanco['codigo'] == 1) {
+                    if ($resBanco['codigo'] == 1) {
                         $sucesso = true;
                     } else {
-                        //Captura erro no banco
+                        // Captura erro do banco
                         $erros[] = [
                             'codigo' => $resBanco['codigo'],
                             'msg' => $resBanco['msg']
                         ];
-                    }           
-                 }               
-             }                   
+                    }
+                }
+            }
         } catch (Exception $e) {
-        $erros[] = ['codigo' => 0, 'msg' => $e->getMessage()];
-    }
+            $erros[] = ['codigo' => 0, 'msg' => 'Erro inesperado: ' . $e->getMessage()];
+        }
 
-    //Monta retorno único
-    if ($sucesso == true) {
-        $retorno = [
-            'sucesso' => $sucesso,
-            'codigo' => $resBanco['codigo'],
-            'msg' => $resBanco['msg'],
-            'dados' => $resBanco['dados']];
-    } else {
-        $retorno = ['sucesso' => $sucesso, 'erros' => $erros];
-    }
+        // Monta retorno único
+        if ($sucesso == true) {
+            $retorno = [
+                'sucesso' => $sucesso,
+                'codigo' => $resBanco['codigo'],
+                'msg' => $resBanco['msg'],
+                'dados' => $resBanco['dados']
+            ];
+        } else {
+            $retorno = ['sucesso' => $sucesso, 'erros' => $erros];
+        }
 
-    echo json_encode($retorno);
+        // Transforma o array em JSON
+        echo json_encode($retorno);
     }
-public function alterar() {
+    public function alterar() {
     // Atributos para controlar o status de nosso método
     $erros = [];
     $sucesso = false;
@@ -421,5 +441,3 @@ public function alterar() {
     }
 
 }
-
-?>

@@ -393,7 +393,7 @@ class Horario extends CI_Controller {
 
                     $this->load->model('M_horario');
                     $resBanco = $this->M_horario->desativar(
-                        $this->getCodigo(),
+                        $this->getCodigo()
                     );
 
                     if($resBanco['codigo'] == 1) {

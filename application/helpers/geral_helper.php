@@ -185,27 +185,44 @@ function validarDadosConsulta($valor, $tipo)
 //  13 - Hora Final menor que a Hora Inicial
 //  14 - Data Final menor que a Data Inicial
 //  97 - Tipo de verificação não definida
+//
+// CORREÇÃO: a versão anterior comparava strtotime($valorInicial) !== ''
+// e strtotime($valorFinal) !== '', mas strtotime() NUNCA retorna '' —
+// retorna false em caso de erro/vazio. Essa comparação era sempre
+// verdadeira, fazendo a função tentar comparar valores mesmo quando os
+// campos vinham vazios (ex.: na consulta, que manda horaInicial/horaFinal
+// vazios). Agora verificamos a string original ANTES de converter, e só
+// comparamos se ambos os valores originais não estiverem vazios e o
+// strtotime() tiver convertido com sucesso (diferente de false).
 // =============================================================================
 function compararDataHora($valorInicial, $valorFinal, $tipo)
 {
-    // Passamos a string para hora
-    $valorInicial = strtotime($valorInicial);
-    $valorFinal   = strtotime($valorFinal);
+    // Se algum dos dois vier vazio/nulo, não há o que comparar
+    if ($valorInicial === '' || $valorInicial === null ||
+        $valorFinal   === '' || $valorFinal   === null) {
+        return array('codigoHelper' => 0, 'msg' => 'Validação correta.');
+    }
 
-    if ($valorInicial !== '' && $valorFinal !== '') {
-        if ($valorInicial > $valorFinal) {
-            switch ($tipo) {
-                case 'hora':
-                    return array('codigoHelper' => 13, 'msg' => 'Hora Final menor que a Hora Inicial.');
-                    break;
+    // Passamos a string para timestamp
+    $tsInicial = strtotime($valorInicial);
+    $tsFinal   = strtotime($valorFinal);
 
-                case 'date':
-                    return array('codigoHelper' => 14, 'msg' => 'Data Final menor que a Data Inicial.');
-                    break;
+    // Se a conversão falhar para algum dos dois, não tentamos comparar
+    // (o erro de formato já é tratado por validarDados/validarDadosConsulta)
+    if ($tsInicial === false || $tsFinal === false) {
+        return array('codigoHelper' => 0, 'msg' => 'Validação correta.');
+    }
 
-                default:
-                    return array('codigoHelper' => 97, 'msg' => 'Tipo de verificação não definida.');
-            }
+    if ($tsInicial > $tsFinal) {
+        switch ($tipo) {
+            case 'hora':
+                return array('codigoHelper' => 13, 'msg' => 'Hora Final menor que a Hora Inicial.');
+
+            case 'date':
+                return array('codigoHelper' => 14, 'msg' => 'Data Final menor que a Data Inicial.');
+
+            default:
+                return array('codigoHelper' => 97, 'msg' => 'Tipo de verificação não definida.');
         }
     }
 

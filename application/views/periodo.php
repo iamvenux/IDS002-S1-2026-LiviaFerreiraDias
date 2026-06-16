@@ -257,13 +257,16 @@
             conteudoAcesso.innerHTML = '';
 
             // Preencher a tabela com os dados recebidos
+            // OBS: o Model faz "SELECT *" na tabela tbl_horario, então os
+            // nomes das colunas retornadas são os nomes reais do banco
+            // (hora_ini / hora_fim), e não horaInicial / horaFinal.
             data.dados.forEach(item => {
                 conteudoAcesso.innerHTML += `
                     <tr class="alert alert-warning">
                         <td>${item.codigo}</td>
                         <td>${item.descricao}</td>
-                        <td>${item.horaInicial}</td>
-                        <td>${item.horaFinal}</td>
+                        <td>${item.hora_ini}</td>
+                        <td>${item.hora_fim}</td>
                         <td>
                             <div class="row">
                                 <button class="btn btn-warning btnAcao" onclick="openEditModal(this)">

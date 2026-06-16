@@ -28,8 +28,7 @@ class M_mapa extends CI_Model {
     {
         try {
             // Verifica se a reserva já está cadastrada
-            $retornoConsultaReservaTotal = $this->consultaReservaTotal($dataReserva, $codSala, $codHorario,
-                                                                        $codTurma, $codProfessor);
+            $retornoConsultaReservaTotal = $this->consultaReservaTotal($dataReserva, $codSala, $codHorario, $codTurma, $codProfessor);
 
             if ($retornoConsultaReservaTotal['codigo'] == 11 ||
                 $retornoConsultaReservaTotal['codigo'] == 7) {

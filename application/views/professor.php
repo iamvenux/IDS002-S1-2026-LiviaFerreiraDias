@@ -90,7 +90,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6">
                                         <label for="cpf" class="col-form-label">CPF</label>
-                                        <input type="number" id="cpf" name="cpf" class="form-control" required>
+                                        <input type="text" id="cpf" name="cpf" class="form-control" required>
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="tipo" class="col-form-label">Tipo</label>
